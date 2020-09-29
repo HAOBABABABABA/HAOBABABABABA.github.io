@@ -164,16 +164,17 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/09/28/article-tittle/">article tittle</a>
+        <a href="/2020/09/29/hello-world/">hello_world</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/09/28/article-tittle/">
+        <a href="/2020/09/29/hello-world/">
           
           
             
           
-          
+          欢迎来到我的博客! 每个程序员学习一个新东西都是先从hello world学起。所以第一篇文章以hello world命名。搭建这个博客的初衷想跟大家分享下学习经验，还有记录一下自己的心情。在学习的路上，不可能谁都懂你，若是，那你也太普通了吧！！
+
         </a>
       </p>
 
@@ -181,75 +182,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-28 22:13" pubdate>
-              2020-09-28
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/09/03/article-title/">article title</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/09/03/article-title/">
-          
-          
-            
-          
-          
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-03 22:04" pubdate>
-              2020-09-03
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/09/03/hello-world/">Hello World</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/09/03/hello-world/">
-          
-          
-            
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-03 20:29" pubdate>
-              2020-09-03
+            <time datetime="2020-09-29 22:06" pubdate>
+              2020-09-29
             </time>
           </div>
         
@@ -390,6 +324,56 @@ Quick
 
 
 
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
 
 
 
